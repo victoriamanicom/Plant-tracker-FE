@@ -14,6 +14,31 @@ function deletePlant(id) {
     .catch((error) => console.log(error));
 }
 
+function updatePlant(plant) {
+  document
+    .querySelector("#myModal > div > div > div.modal-body > form")
+    .addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      const form = e.target;
+
+      const updateData = {
+        name: form.name.value,
+        potSize: form.potSize.value,
+        leafColour: form.leafColour.value,
+        isSucculent: form.isSucculent.checked,
+        imgUrl: form.imageUrl.value,
+      };
+
+      axios
+        .put(`http://localhost:8080/updatePlant/${plant.id}`, updateData)
+        .then((response) => {
+          getAllPlants();
+        })
+        .catch((error) => console.log(error));
+    });
+}
+
 function setupPlant(plant) {
   let newPlant = document.createElement("div");
   newPlant.className = "card";
@@ -22,6 +47,8 @@ function setupPlant(plant) {
   buttonDiv.className = "buttons";
   let updateButton = document.createElement("button");
   updateButton.className = "updateButton";
+  updateButton.setAttribute("data-bs-toggle", `modal`);
+  updateButton.setAttribute("data-bs-target", `#myModal`);
   updateButton.innerHTML = `<i class="far fa-edit"></i>`;
   updateButton.addEventListener("click", () => updatePlant(plant));
   buttonDiv.appendChild(updateButton);
@@ -107,7 +134,7 @@ document
       .post("http://localhost:8080/createPlant", data)
       .then((response) => {
         getAllSection.appendChild(setupPlant(response.data));
-
+        // createToast();
         form.reset();
         form.name.focus();
       })
