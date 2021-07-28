@@ -4,6 +4,7 @@ const getAllSection = document.querySelector("#getAllSection");
 const nameOutputSection = document.querySelector("#nameOutputSection");
 const nameInput = document.querySelector("#nameInput");
 const getButton = document.querySelector("#getButton");
+const toastBody = document.querySelector("#createToast > div.toast-body");
 
 function deletePlant(id) {
   axios
@@ -99,6 +100,12 @@ function getByName() {
     .catch((error) => console.log(error));
 }
 
+function createToast() {
+  const toastHTMLElement = document.getElementById("createToast");
+  const toastElement = new bootstrap.Toast(toastHTMLElement);
+  toastElement.show();
+}
+
 //Get Plant by name on click of button
 getButton.addEventListener("click", getByName);
 
@@ -134,7 +141,8 @@ document
       .post("http://localhost:8080/createPlant", data)
       .then((response) => {
         getAllSection.appendChild(setupPlant(response.data));
-        // createToast();
+        toastBody.innerText = `${response.data.name} created!`;
+        createToast();
         form.reset();
         form.name.focus();
       })
