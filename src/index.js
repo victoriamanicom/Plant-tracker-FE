@@ -8,6 +8,12 @@ const toastBody = document.querySelector("#createToast > div.toast-body");
 const formNameUpdate = document.querySelector("#plantNameUpdate");
 const potSizeUpdate = document.querySelector("#potSizeUpdate");
 const leafColourUpdate = document.querySelector("#leafColourUpdate");
+const leafColourUpdateOption1 = document.querySelector(
+  "#leafColourUpdate > option:nth-child(1)"
+);
+const leafColourUpdateOption2 = document.querySelector(
+  "#leafColourUpdate > option:nth-child(2)"
+);
 const imgUrlUpdate = document.querySelector("#imageUrlUpdate");
 const isSucculentUpdate = document.querySelector("#isSucculentUpdate");
 
@@ -21,12 +27,21 @@ function deletePlant(id) {
 }
 
 function updatePlant(plant) {
-  console.log(plant);
+  console.log(plant.leafColour);
   formNameUpdate.setAttribute("value", plant.name);
   potSizeUpdate.setAttribute("value", plant.potSize);
+  if (plant.leafColour === "Green") {
+    leafColourUpdateOption1.setAttribute("selected", true);
+  } else {
+    leafColourUpdateOption2.setAttribute("selected", true);
+  }
   leafColourUpdate.setAttribute("value", plant.leafColour);
   imgUrlUpdate.setAttribute("value", plant.imgUrl);
-  isSucculentUpdate.setAttribute("checked", plant.isSucculent);
+  if (plant.isSucculent === true) {
+    isSucculentUpdate.setAttribute("checked", true);
+  } else {
+    isSucculentUpdate.removeAttribute("checked");
+  }
 
   document
     .querySelector("#myModal > div > div > div.modal-body > form")
