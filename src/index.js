@@ -1,6 +1,9 @@
 "use strict";
 
 const getAllSection = document.querySelector("#getAllSection");
+const nameOutputSection = document.querySelector("#nameOutputSection");
+const nameInput = document.querySelector("#nameInput");
+const getButton = document.querySelector("#getButton");
 
 function deletePlant(id) {
   axios
@@ -34,6 +37,7 @@ function setupPlant(plant) {
   newPlant.appendChild(nameElement);
   let imageElement = document.createElement("img");
   imageElement.setAttribute("src", `${plant.imgUrl}`);
+  imageElement.setAttribute("alt", `No image provided`);
   newPlant.appendChild(imageElement);
   let potSizeElement = document.createElement("p");
   potSizeElement.textContent = `Pot Size: ${plant.potSize}cm`;
@@ -50,12 +54,26 @@ function setupPlant(plant) {
   } else {
     let isSucculentElement = document.createElement("div");
     isSucculentElement.className = "noTags";
-
     newPlant.appendChild(isSucculentElement);
   }
 
   return newPlant;
 }
+
+function getByName() {
+  axios
+    .get(`http://localhost:8080/getByName/${nameInput.value}`)
+    .then((response) => {
+      console.log(response);
+      const plant = response.data;
+      nameOutputSection.innerHTML = "";
+      nameOutputSection.appendChild(setupPlant(plant));
+    })
+    .catch((error) => console.log(error));
+}
+
+//Get Plant by name on click of button
+getButton.addEventListener("click", getByName);
 
 const getAllPlants = () => {
   axios
@@ -69,5 +87,34 @@ const getAllPlants = () => {
     })
     .catch((error) => console.log(error));
 };
+
+document
+  .querySelector("#createPlantSection > form")
+  .addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    const form = e.target;
+
+    const data = {
+      name: form.name.value,
+      potSize: form.potSize.value,
+      leafColour: form.leafColour.value,
+      isSucculent: form.isSucculent.checked,
+      imgUrl: form.imageUrl.value,
+    };
+
+    axios
+      .post("http://localhost:8080/createPlant", data)
+      .then((response) => {
+        getAllSection.appendChild(setupPlant(response.data));
+
+        form.reset();
+        form.name.focus();
+      })
+      .catch((error) => {
+        console.log(error);
+        alert("This plant already exists");
+      });
+  });
 
 getAllPlants();

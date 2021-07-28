@@ -34,10 +34,10 @@
         <div class="card-container" id="getAllSection"></div>
       </div>
       <div class="row">
-        <div class="col">
+        <div class="col" id="createPlantSection">
           <h2>Create Plant:</h2>
           <form>
-            <div class="row g-2 align-items-center mb-3">
+            <div class="row g-2 align-items-center mb-2">
               <div class="col-2">
                 <label for="plantName" class="form-label">Name: </label>
               </div>
@@ -51,7 +51,7 @@
                 />
               </div>
             </div>
-            <div class="row g-2 align-items-center mb-3">
+            <div class="row g-2 align-items-center mb-2">
               <div class="col-2">
                 <label for="potSize" class="form-label">Pot Size: </label>
               </div>
@@ -64,7 +64,7 @@
                 />
               </div>
             </div>
-            <div class="row g-2 align-items-center mb-3">
+            <div class="row g-2 align-items-center mb-2">
               <div class="col-2">
                 <label for="leafColour" class="form-label">Leaf Colour: </label>
               </div>
@@ -77,7 +77,20 @@
                 />
               </div>
             </div>
-            <div class="row g-2 align-items-center mb-3">
+            <div class="row g-2 align-items-center mb-2">
+              <div class="col-2">
+                <label for="imageUrl" class="form-label">Image url: </label>
+              </div>
+              <div class="col-10">
+                <input
+                  type="text"
+                  id="imageUrl"
+                  class="form-control"
+                  name="imageUrl"
+                />
+              </div>
+            </div>
+            <div class="row g-2 align-items-center mb-2">
               <div class="col-2">
                 <label for="isSucculent" class="form-check-label"
                   >Succulent?
@@ -92,10 +105,28 @@
                 />
               </div>
             </div>
-            <button type="submit">Submit</button>
+            <button type="submit" class="btn btn-success">Submit</button>
           </form>
         </div>
-        <div class="col"><h2>Search:</h2></div>
+        <div class="col">
+          <h2>Search:</h2>
+          <div id="getByNameSection">
+            <div class="row g-3 align-items-center mb-2">
+              <div class="col-3">
+                <label for="nameInput" class="form-label">Name:</label>
+              </div>
+              <div class="col-6">
+                <input type="text" id="nameInput" class="form-control" />
+              </div>
+              <div class="col-3">
+                <button id="getButton" class="btn btn-success">
+                  Find Plant
+                </button>
+              </div>
+            </div>
+            <div id="nameOutputSection"></div>
+          </div>
+        </div>
       </div>
     </main>
 
