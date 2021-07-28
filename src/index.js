@@ -5,6 +5,11 @@ const nameOutputSection = document.querySelector("#nameOutputSection");
 const nameInput = document.querySelector("#nameInput");
 const getButton = document.querySelector("#getButton");
 const toastBody = document.querySelector("#createToast > div.toast-body");
+const formNameUpdate = document.querySelector("#plantNameUpdate");
+const potSizeUpdate = document.querySelector("#potSizeUpdate");
+const leafColourUpdate = document.querySelector("#leafColourUpdate");
+const imgUrlUpdate = document.querySelector("#imageUrlUpdate");
+const isSucculentUpdate = document.querySelector("#isSucculentUpdate");
 
 function deletePlant(id) {
   axios
@@ -16,6 +21,13 @@ function deletePlant(id) {
 }
 
 function updatePlant(plant) {
+  console.log(plant);
+  formNameUpdate.setAttribute("value", plant.name);
+  potSizeUpdate.setAttribute("value", plant.potSize);
+  leafColourUpdate.setAttribute("value", plant.leafColour);
+  imgUrlUpdate.setAttribute("value", plant.imgUrl);
+  isSucculentUpdate.setAttribute("checked", plant.isSucculent);
+
   document
     .querySelector("#myModal > div > div > div.modal-body > form")
     .addEventListener("submit", (e) => {
