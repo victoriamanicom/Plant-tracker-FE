@@ -60,7 +60,7 @@ function setupPlant(plant) {
   buttonDiv.appendChild(deleteButton);
   newPlant.appendChild(buttonDiv);
   let nameElement = document.createElement("h3");
-  nameElement.setAttribute("class", `plant-name`);
+  nameElement.classList.add("plantName", "card-title");
   nameElement.textContent = `${plant.name}`;
   newPlant.appendChild(nameElement);
   let imageElement = document.createElement("img");
@@ -73,7 +73,6 @@ function setupPlant(plant) {
   let leafColourElement = document.createElement("p");
   leafColourElement.textContent = `Leaf Colour: ${plant.leafColour}`;
   newPlant.appendChild(leafColourElement);
-  let isSucculentElement = document.createElement("p");
   if (plant.isSucculent === true) {
     let isSucculentElement = document.createElement("div");
     isSucculentElement.className = "tags";
@@ -88,6 +87,59 @@ function setupPlant(plant) {
   return newPlant;
 }
 
+function setUpSearchReturn(plant) {
+  let newPlant = document.createElement("div");
+  newPlant.className = "card row g-0";
+  newPlant.setAttribute("style", `min-width: 300px`);
+  let cardBreak1 = document.createElement("div");
+  cardBreak1.className = "col-md-6";
+  let nameElement = document.createElement("h3");
+  nameElement.classList.add("plantName", "card-title");
+  nameElement.textContent = `${plant.name}`;
+  cardBreak1.appendChild(nameElement);
+  let imageElement = document.createElement("img");
+  imageElement.setAttribute("src", `${plant.imgUrl}`);
+  imageElement.setAttribute("alt", `No image provided`);
+  cardBreak1.appendChild(imageElement);
+  newPlant.appendChild(cardBreak1);
+  let cardBreak = document.createElement("div");
+  cardBreak.className = "col-md-6";
+  let potSizeElement = document.createElement("p");
+  potSizeElement.textContent = `Pot Size: ${plant.potSize}cm`;
+  cardBreak.appendChild(potSizeElement);
+  let leafColourElement = document.createElement("p");
+  leafColourElement.textContent = `Leaf Colour: ${plant.leafColour}`;
+  cardBreak.appendChild(leafColourElement);
+  if (plant.isSucculent === true) {
+    let isSucculentElement = document.createElement("div");
+    isSucculentElement.className = "tags";
+    isSucculentElement.textContent = `Succulent`;
+    cardBreak.appendChild(isSucculentElement);
+  } else {
+    let isSucculentElement = document.createElement("div");
+    isSucculentElement.className = "noTags";
+    cardBreak.appendChild(isSucculentElement);
+  }
+  newPlant.appendChild(cardBreak);
+  let buttonDiv = document.createElement("div");
+  buttonDiv.className = "buttons";
+  let updateButton = document.createElement("button");
+  updateButton.className = "updateButton";
+  updateButton.setAttribute("data-bs-toggle", `modal`);
+  updateButton.setAttribute("data-bs-target", `#myModal`);
+  updateButton.innerHTML = `<i class="far fa-edit"></i>`;
+  updateButton.addEventListener("click", () => updatePlant(plant));
+  buttonDiv.appendChild(updateButton);
+  let deleteButton = document.createElement("button");
+  deleteButton.className = "deleteButton";
+  deleteButton.innerHTML = `<i class="far fa-trash-alt"></i>`;
+  deleteButton.addEventListener("click", () => deletePlant(plant.id));
+  buttonDiv.appendChild(deleteButton);
+  newPlant.appendChild(buttonDiv);
+
+  return newPlant;
+}
+
 function getByName() {
   axios
     .get(`http://localhost:8080/getByName/${nameInput.value}`)
@@ -95,7 +147,7 @@ function getByName() {
       console.log(response);
       const plant = response.data;
       nameOutputSection.innerHTML = "";
-      nameOutputSection.appendChild(setupPlant(plant));
+      nameOutputSection.appendChild(setUpSearchReturn(plant));
     })
     .catch((error) => console.log(error));
 }

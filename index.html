@@ -30,9 +30,10 @@
     </header>
     <main class="container">
       <div class="row">
-        <h2>All Plants:</h2>
 
-        <div class="card-container" id="getAllSection"></div>
+        <div class="card-container" id="getAllSection">
+
+        </div>
         <div
           class="modal fade"
           id="myModal"
@@ -129,7 +130,7 @@
                       />
                     </div>
                   </div>
-                  <button type="submit" class="btn btn-primary"
+                  <button type="submit" class="btn btn-success"
                   data-bs-dismiss="modal"
                   aria-label="Close">
                     Save changes
@@ -143,14 +144,14 @@
         </div>
       </div>
       <div class="row">
-        <div class="col" id="createPlantSection">
+        <div class="col-4" id="createPlantSection">
           <h2>Create Plant:</h2>
           <form>
             <div class="row g-2 align-items-center mb-2">
-              <div class="col-2">
+              <div class="col-3">
                 <label for="plantName" class="form-label">Name: </label>
               </div>
-              <div class="col-10">
+              <div class="col-9">
                 <input
                   type="text"
                   id="plantName"
@@ -161,10 +162,10 @@
               </div>
             </div>
             <div class="row g-2 align-items-center mb-2">
-              <div class="col-2">
+              <div class="col-3">
                 <label for="potSize" class="form-label">Pot Size: </label>
               </div>
-              <div class="col-10">
+              <div class="col-9">
                 <input
                   type="number"
                   id="potSize"
@@ -174,10 +175,10 @@
               </div>
             </div>
             <div class="row g-2 align-items-center mb-2">
-              <div class="col-2">
+              <div class="col-3">
                 <label for="leafColour" class="form-label">Leaf Colour: </label>
               </div>
-              <div class="col-10">
+              <div class="col-9">
                 <input
                   type="text"
                   id="leafColour"
@@ -187,10 +188,10 @@
               </div>
             </div>
             <div class="row g-2 align-items-center mb-2">
-              <div class="col-2">
+              <div class="col-3">
                 <label for="imageUrl" class="form-label">Image url: </label>
               </div>
-              <div class="col-10">
+              <div class="col-9">
                 <input
                   type="text"
                   id="imageUrl"
@@ -200,12 +201,12 @@
               </div>
             </div>
             <div class="row g-2 align-items-center mb-2">
-              <div class="col-2">
+              <div class="col-3">
                 <label for="isSucculent" class="form-check-label"
                   >Succulent?
                 </label>
               </div>
-              <div class="col-10">
+              <div class="col-9">
                 <input
                   type="checkbox"
                   name="isSucculent"
@@ -230,7 +231,7 @@
             </div>
           </div>
         </div>
-        <div class="col">
+        <div class="col-8">
           <h2>Search:</h2>
           <div id="getByNameSection">
             <div class="row g-3 align-items-center mb-2">

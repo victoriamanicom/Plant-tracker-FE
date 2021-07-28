@@ -1,15 +1,21 @@
 h1 {
-  padding: 25px 25px 0px 25px;
+  padding: 19px 25px 0px 25px;
   text-align: center;
   color: #4d685a;
 }
-/* * {
-  box-sizing: border-box;
-} */
+
+h2 {
+  color: #4d685a;
+}
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   background-color: #e5f3ed !important;
+}
+
+label {
+  font-size: 15px;
+  color: #546d64;
 }
 
 .row {
@@ -111,7 +117,7 @@ body {
   padding: 4px 10px;
 }
 
-.card .plant-name {
+.card .plantName {
   font-size: 17px;
   font-weight: 700;
   margin-bottom: 5px;
@@ -128,4 +134,35 @@ body {
 
 .card:hover ~ .card {
   transform: translateX(50px);
+}
+
+#nameOutputSection {
+  padding: 10px;
+  background-color: #3c896d;
+  border-radius: 10px;
+  height: 300px;
+}
+
+#nameOutputSection > div {
+  margin: auto;
+  max-height: 280px;
+  max-width: 500px;
+}
+
+#nameOutputSection > div > div > p {
+  margin: 25px 15px 0px auto;
+  font-size: 15px;
+}
+
+#nameOutputSection > div > div > div.tags {
+  margin: 20px auto;
+  font-size: 12px;
+}
+
+#nameOutputSection > div > div.buttons {
+  margin: auto;
+  margin-bottom: 10px;
+  width: 50%;
+  font-size: 30px;
+  padding: 10px;
 }
