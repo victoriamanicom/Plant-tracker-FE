@@ -181,3 +181,7 @@ label {
 .submit {
   float: right;
 }
+
+.check-green:checked {
+  background-color: green;
+}
