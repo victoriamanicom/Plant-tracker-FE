@@ -62,7 +62,7 @@ The back-end of this project was created using Java in a Spring Boot Framework. 
 Both integration and unit testing was used on this project.
 
 Integration testing: MockMVC\
-![](https://lh3.googleusercontent.com/X0vyH3ne1faVPJ-oFZik5-uiK63gOxzwM4baYwnrqSH2Upu_cG71bCGsT2w1miIJtafL7l9pFuJlhE4lU4mvv8JReaOAMeEeZOh7JP31l5lfRtAza3nkKl3pHwxDoMpNwSNnN_-Z)
+![](https://lh4.googleusercontent.com/eFd3quy2T8RZuh3mjpBMGv84zvQFkbIb255BBzic2MROstOFq4KgQtdD7HLoPoSDDyYFWPqpG4M_lLnQQYdzCldqAb2EEhDpZ-xzPkY6uQ9RT4XDJ9JcfIDijlNHCxIrXRXe99_l)
 
 To make sure that the program was working, I used MockMVC to create a mocked Controller class.
 
@@ -72,7 +72,7 @@ Unit testing: JUnit and Mockito
 
 By unit testing each part of the program I could check that the individual parts are working as they should. Using Mockito I mocked the responses given by the repo so that I could test if what came out of my method matched my testing data.
 
-![](https://lh5.googleusercontent.com/73NkGCHXUDMm6vnVHHdL_KuwnmpwBTGlq_rbltc9OCYoBUdUY84vZ09yy9zXJoi4GMw8K1qnun5RFKELKdRUox7TUB7vN52Zyeg-x5c4ZpgjnosTMK9eVbPH5GsXif5SW9by-Kt1)
+![](https://lh6.googleusercontent.com/4cJFjIRKfRDFyyotmGI8snpLpZwBJeUpROH_ciNUy4FmlOJwwP2PjS1Q76ym2bPyFm-6O81LZTsRThKPrB908bxZBaZ9fvTgtRzvk2HnY2H4tAs2zUlOsq3gLEgun8yURT7nqcRH)
 
 GIVEN-WHEN-THEN-VERIFY structure.
 
