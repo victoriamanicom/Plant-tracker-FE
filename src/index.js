@@ -16,6 +16,7 @@ const leafColourUpdateOption2 = document.querySelector(
 );
 const imgUrlUpdate = document.querySelector("#imageUrlUpdate");
 const isSucculentUpdate = document.querySelector("#isSucculentUpdate");
+const filterSucculentButton = document.querySelector("#succulentFilterButton");
 
 function deletePlant(id) {
   axios
@@ -27,7 +28,6 @@ function deletePlant(id) {
 }
 
 function updatePlant(plant) {
-  console.log(plant.leafColour);
   formNameUpdate.setAttribute("value", plant.name);
   potSizeUpdate.setAttribute("value", plant.potSize);
   if (plant.leafColour === "Green") {
@@ -171,13 +171,43 @@ function getByName() {
   axios
     .get(`http://localhost:8080/getByName/${nameInput.value}`)
     .then((response) => {
-      console.log(response);
       const plant = response.data;
       nameOutputSection.innerHTML = "";
       nameOutputSection.appendChild(setUpSearchReturn(plant));
     })
     .catch((error) => console.log(error));
 }
+let count = 0;
+function getSucculent() {
+  axios
+    .get(`http://localhost:8080/getSucculent`)
+    .then((response) => {
+      if (count % 2 === 0) {
+        filterSucculentButton.setAttribute(
+          "style",
+          `background-color: #546d64; color:#fff`
+        );
+        nameOutputSection.innerHTML = "";
+        getAllSection.innerHTML = "";
+        const plants = response.data;
+        plants.forEach((plant) => {
+          getAllSection.appendChild(setupPlant(plant));
+        });
+        count++;
+      } else {
+        filterSucculentButton.setAttribute(
+          "style",
+          `background-color: #fff; color:#546d64`
+        );
+        getAllPlants();
+        count++;
+      }
+      console.log(count);
+    })
+    .catch((error) => console.log(error));
+}
+
+filterSucculentButton.addEventListener("click", getSucculent);
 
 function createToast() {
   const toastHTMLElement = document.getElementById("createToast");

@@ -31,9 +31,9 @@
     <main class="container">
       <div class="row">
 
-        <div class="card-container" id="getAllSection">
-
-        </div>
+        <div class="card-container col-11" id="getAllSection"></div>
+        <div class="col-1">
+            <h4 id="filterHeading">Filter By</h4><button type="button" id="succulentFilterButton">Succulent</button></div>
         <div
           class="modal fade"
           id="myModal"
@@ -142,7 +142,7 @@
           </div>
         </div>
       </div>
-      <div class="row">
+      <div class="row gx-8">
         <div class="col-4" id="createPlantSection">
           <h2>Create Plant:</h2>
           <form>
@@ -180,8 +180,8 @@
               <div class="col-9">
                 <select class="form-select" id="leafColour" name="leafColour">
                     <option selected>Choose...</option>
-                    <option value="1">Green</option>
-                    <option value="2">Variegated</option>
+                    <option value="Green">Green</option>
+                    <option value="Variegated">Variegated</option>
                 </select>
               </div>
             </div>
