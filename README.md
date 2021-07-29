@@ -83,7 +83,7 @@ GIVEN-WHEN-THEN-VERIFY structure.
 The front-end is built from HTML, CSS and JavaScript. I used the Bootstrap framework for various components, including forms, modals and toasts.
 
 The HTML and CSS are used to create the look of the website, I used CSS to animate the plant cards when hovered over for extra user interaction.\
-![](https://lh4.googleusercontent.com/TI7_CWBMY39VHViM6z-X-RtNIZPDc28tGlEw1DThFV71Jc0gDyyUuZm_4W2MZpdiuudy_k_UwB_cofsWFIpXNukYGlUJpNaoWENUQPe6GoX8X-Ibb0dhjO3XO9pKcji-zrhFx7N6)
+![](https://lh4.googleusercontent.com/03_SLAbjwnCNTHhDvgEYJYmXhjUUIzMxn4BauCxT1TYVsrbP_dFk02a94idpkLIgZljLw4nY3r3X8kfKW8-hL5E3Pnsb37bkMVEJJU5gxjH8oxr7NgM7VOJDRZZTgr7j48iTJsU2)
 
 The JS was used for the API integration using axios. It was also used to get the modal and toasts to pop up on creation/updating.\
 ![](https://lh3.googleusercontent.com/OctetUULYWPzih9ZkTBcZfUj76zcX-bzTKPeA5Lw043hmewq7J2WWXKRaq6-9ZhYyQYEWzYvwG3bWSSa9PYHvd_abYl-QFo34-xBVToRCeb2HudeCju6ODOsSNMVInD8SvoU_uF3)\
