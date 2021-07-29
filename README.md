@@ -33,6 +33,12 @@ Throughout the project build I completed various sprints, grouping the issues fr
 
 ![](https://lh6.googleusercontent.com/sN428wmx3-QxizkfNOStiIjTWaxsyEGCqtzF_3eqY5tGEg29l7iuC07PvwSwU7T7gr955TXQWr7Sw-MV9syxSO_W-rdP-k1YTYhSGpP0KEyWl6nkEx5DZ4te-WlxOeV4xvxEMd3D)
 
+I set up two git repositories before starting - one for the front-end and one for back-end. This is the network graph from my back-end repository:
+
+![](https://lh3.googleusercontent.com/2dpUFod5kFAkHn4VByrPF2JHdFommcMl2Ye-BfROPz5ooNtsgvPYw1uW7OV6PQH7pGc-xFDuGfOICd1Xkvc3knNZu6OwnkWzROQ3sTxJ7mpkwjZfQYI3Ca-8kWZun7_kShVCHlZz)
+
+I linked my git with my jira board so I could make smart commits throughout the build and made sure to commit after each new functionality.
+
 * * * * *
 
 ### Databases
