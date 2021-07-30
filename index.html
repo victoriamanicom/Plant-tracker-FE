@@ -10,17 +10,251 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+
     <link rel="stylesheet" href="./src/style.css" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script
+      src="https://kit.fontawesome.com/e2e1b5b792.js"
+      crossorigin="anonymous"
+    ></script>
     <title>My Plant Tracker</title>
   </head>
   <body>
-    <h1>My Plant Tracker</h1>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+    <header>
+      <h1>My Plant Tracker</h1>
+    </header>
+    <main class="container">
+      <div class="row">
+
+        <div class="card-container col-11" id="getAllSection"></div>
+        <div class="col-1">
+            <h4 id="filterHeading">Filter By</h4><button type="button" id="succulentFilterButton">Succulent</button></div>
+        <div
+          class="modal fade"
+          id="myModal"
+          tabindex="-1"
+          aria-labelledby="myModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="myModalLabel">Update Plant</h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <form>
+                  <div class="row g-2 align-items-center mb-2">
+                    <div class="col-2">
+                      <label for="plantNameUpdate" class="form-label"
+                        >Name:
+                      </label>
+                    </div>
+                    <div class="col-10">
+                      <input
+                        type="text"
+                        id="plantNameUpdate"
+                        class="form-control"
+                        name="name"
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div class="row g-2 align-items-center mb-2">
+                    <div class="col-2">
+                      <label for="potSizeUpdate" class="form-label"
+                        >Pot Size:
+                      </label>
+                    </div>
+                    <div class="col-10">
+                      <input
+                        type="number"
+                        id="potSizeUpdate"
+                        class="form-control"
+                        name="potSize"
+                      />
+                    </div>
+                  </div>
+                  <div class="row g-2 align-items-center mb-2">
+                    <div class="col-2">
+                      <label for="leafColourUpdate" class="form-label"
+                        >Leaf Colour:
+                      </label>
+                    </div>
+                    <div class="col-10">
+                        <select class="form-select" id="leafColourUpdate" name="leafColour">
+                            <option value="Green">Green</option>
+                            <option value="Variegated">Variegated</option>
+                        </select>
+                      
+                    </div>
+                  </div>
+                  <div class="row g-2 align-items-center mb-2">
+                    <div class="col-2">
+                      <label for="imageUrlUpdate" class="form-label"
+                        >Image url:
+                      </label>
+                    </div>
+                    <div class="col-10">
+                      <input
+                        type="text"
+                        id="imageUrlUpdate"
+                        class="form-control"
+                        name="imageUrl"
+                      />
+                    </div>
+                  </div>
+                  <div class="row g-2 align-items-center mb-2">
+                    <div class="col-2">
+                      <label for="isSucculentUpdate" class="form-check-label"
+                        >Succulent?
+                      </label>
+                    </div>
+                    <div class="col-10">
+                      <input
+                        type="checkbox"
+                        name="isSucculent"
+                        id="isSucculentUpdate"
+                        class="form-check-input check-green"
+                      />
+                    </div>
+                  </div>
+                  <button type="submit" class="btn btn-success submit"
+                  data-bs-dismiss="modal"
+                  aria-label="Close">
+                    Save changes
+                  </button>
+                </form>
+              </div>
+                            
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row gx-8">
+        <div class="col-4" id="createPlantSection">
+          <h2>Create Plant:</h2>
+          <form>
+            <div class="row g-2 align-items-center mb-2">
+              <div class="col-3">
+                <label for="plantName" class="form-label">Name: </label>
+              </div>
+              <div class="col-9">
+                <input
+                  type="text"
+                  id="plantName"
+                  class="form-control"
+                  name="name"
+                  required
+                />
+              </div>
+            </div>
+            <div class="row g-2 align-items-center mb-2">
+              <div class="col-3">
+                <label for="potSize" class="form-label">Pot Size: </label>
+              </div>
+              <div class="col-9">
+                <input
+                  type="number"
+                  id="potSize"
+                  class="form-control"
+                  name="potSize"
+                />
+              </div>
+            </div>
+            <div class="row g-2 align-items-center mb-2">
+              <div class="col-3">
+                <label for="leafColour" class="form-label">Leaf Colour: </label>
+              </div>
+              <div class="col-9">
+                <select class="form-select" id="leafColour" name="leafColour">
+                    <option selected>Choose...</option>
+                    <option value="Green">Green</option>
+                    <option value="Variegated">Variegated</option>
+                </select>
+              </div>
+            </div>
+            <div class="row g-2 align-items-center mb-2">
+              <div class="col-3">
+                <label for="imageUrl" class="form-label">Image url: </label>
+              </div>
+              <div class="col-9">
+                <input
+                  type="text"
+                  id="imageUrl"
+                  class="form-control"
+                  name="imageUrl"
+                />
+              </div>
+            </div>
+            <div class="row g-2 align-items-center mb-2">
+              <div class="col-3">
+                <label for="isSucculent" class="form-check-label"
+                  >Succulent?
+                </label>
+              </div>
+              <div class="col-9">
+                <input
+                  type="checkbox"
+                  name="isSucculent"
+                  id="isSucculent"
+                  class="form-check-input check-green"
+                />
+              </div>
+            </div>
+            <button type="submit" class="btn btn-success submit">Submit</button>
+          </form>
+          <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+            <div id="createToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true">
+              <div class="toast-header">
+                <i class="fas fa-seedling"></i>
+                <strong class="me-auto"> Success!</strong>
+                <!-- <small>11 mins ago</small> -->
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+              </div>
+              <div class="toast-body">
+                Plant created!
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-8">
+          <h2>Search:</h2>
+          <div id="getByNameSection">
+            <div class="row g-3 align-items-center mb-2">
+              <div class="col-3">
+                <label for="nameInput" class="form-label">Name:</label>
+              </div>
+              <div class="col-6">
+                <input type="text" id="nameInput" class="form-control" />
+              </div>
+              <div class="col-3">
+                <button id="getButton" class="btn btn-success">
+                  Find Plant
+                </button>
+              </div>
+            </div>
+            <div id="nameOutputSection"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
-    />
+    ></script>
     <script src="./src/index.js"></script>
   </body>
 </html>
