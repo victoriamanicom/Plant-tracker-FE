@@ -3,6 +3,8 @@ Cloud Native - Plant Tracker Project
 
 Victoria Manicom
 
+Google Slides Presentation link : https://docs.google.com/presentation/d/1M-UfdzhacYPcKe4Kq2eQnCwkP0C419whzndnhrgJ7UI/edit?usp=sharing
+
 Introduction:
 -------------
 
